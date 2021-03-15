@@ -1,2 +1,2 @@
-# funct
- Repository for experiments on the development of functional/semantic knowledge in word meanings.
+# shapes
+ Repository for experiments on the contribution of shape and context on early word learning.
