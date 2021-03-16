@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Funct Experiment</title>
+  <title>Shapes Experiment</title>
   <meta charset="utf-8"/>
   <script src="jspsych-6.1.0/jspsych.js"> </script>
   <script src="jspsych-6.1.0/plugins/jspsych-audio-keyboard-response.js"></script>
@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <div id="funct-lwl"></div>
+  <div id="shapes-lwl"></div>
 </body>
 
 <script>
@@ -40,13 +40,13 @@ var trial_order = jsPsych.data.getURLVariable('order')
 // use the publish link NOT the sharing link
 
 if (trial_order == "1") {
-	var publicSpreadsheetUrl = 'https://hjweaver4.github.io/funct/orders/functOrder1.csv'
+	var publicSpreadsheetUrl = 'https://ebreitfeld.github.io/shapes/orders/shapesOrder1_Object1.csv'
 } else if (trial_order =="2") {
-	var publicSpreadsheetUrl = 'https://hjweaver4.github.io/funct/orders/functOrder1_oppTarget.csv'
+	var publicSpreadsheetUrl = 'https://ebreitfeld.github.io/shapes/orders/shapesOrder2_Object1.csv'
 } else if (trial_order =="3") {
-  var publicSpreadsheetUrl = 'https://hjweaver4.github.io/funct/orders/functOrder2.csv'
+  var publicSpreadsheetUrl = 'https://ebreitfeld.github.io/shapes/orders/shapesOrder1_Object2.csv'
 } else if (trial_order =="4") {
-  var publicSpreadsheetUrl = 'https://hjweaver4.github.io/funct/orders/functOrder2_oppTarget.csv'
+  var publicSpreadsheetUrl = 'https://ebreitfeld.github.io/shapes/orders/shapesOrder2_Object2.csv'
 }
 
 //lwl orders
@@ -86,14 +86,14 @@ function createTrials(data) {
 
   var audio_test = {
     type: "audio-keyboard-response",
-    stimulus:"stimuli/sounds/wow_cool_x4.wav",
+    stimulus:"stimuli/audio/wow_cool_x4.wav",
     choices:['space'],
     prompt: "<p> Please turn the volume up or down, so that the volume resembles a person's voice in the room. <br> Please tell the experimenter when you think the level is comfortable for your baby.</br> </p>"
   }
   timeline.push(audio_test);
 
   var expLength = data.length;
-  var audioExt="stimuli/sounds/"
+  var audioExt="stimuli/audio/"
   var imageStart='<img src= "stimuli/images/'
   var imageStop='.jpg"  title = "" width="300" height="300">'
   var videoStart = "stimuli/videos/"
@@ -105,17 +105,14 @@ function createTrials(data) {
     var cur_trial_type = data[i]['trial_type'];
     var cur_stimulus = audioExt+data[i]['auditory_stimulus']+".wav";
     var cur_images = [imageStart+data[i]['left_image']+imageStop, imageStart+data[i]['right_image']+imageStop];
-    var cur_left_video = videoStart+data[i]['left_video']+videoStop;
-    var cur_right_video = videoStart+data[i]['right_video']+videoStop;
+    var cur_video = videoStart+data[i]['center_video']+videoStop;
     var cur_side = data[i]['playing_side'];
     var cur_left_image = imageStart+data[i]['left_image']+imageStop;
     var cur_right_image = imageStart+data[i]['right_image']+imageStop;
 
     //define html buttons
-    var cur_left_video_button = '<div><video id="left-video" width="400" ></div>';
-    var cur_right_video_button = '<div><video id="right-video" width="400" ></div>';
-    var cur_left_video_button_play = '<div><video id="left-video-play" width="400" autoplay></div>';
-    var cur_right_video_button_play = '<div><video id="right-video-play" width="400" autoplay></div>';
+    var cur_video_button = '<div><video id="center-video" width="400" ></div>';
+    var cur_video_button_play = '<div><video id="center-video-play" width="400" autoplay></div>';
 
     //define set up visual display
     var cur_background = data[i]['background'];
@@ -149,29 +146,15 @@ function createTrials(data) {
       }
         timeline.push(lwl_trials);
     } else {
-      //define which video plays first
-      if (cur_side == "right") {
-        var button_html = [cur_left_video_button,cur_right_video_button_play];
-		    var selector_ids = ['left-video','right-video-play'];
-        var cur_choices = [cur_left_video,cur_right_video];
-      } else if (cur_side == "left"){
-        var button_html = [cur_left_video_button_play,cur_right_video_button];
-		    var selector_ids = ['left-video-play','right-video'];
-        var cur_choices = [cur_left_video,cur_right_video];
-      } else {
-        var button_html = [cur_left_video_button_play,cur_right_video_button_play];
-		    var selector_ids = ['left-video-play','right-video-play'];
-        var cur_choices = [cur_left_video,cur_right_video];
-      }
 
-      // define plp trials
-      var plp_trials = {
+      // define training trials
+      var train_trials = {
         type: 'audio-button-response-flexiblelocations',
 			  preload_video_button: true,
         stimulus: cur_stimulus,
-        choices: cur_choices,
-        button_html: button_html,
-			  selector_ids: selector_ids,
+        choices: cur_video,
+        button_html: cur_video_button,
+			  selector_ids: ['center-video','center-video-play'],
         trial_ends_after_audio: true,
         //trial_duration: 6400,
         margin_top: ['0px','0px'],
@@ -183,10 +166,7 @@ function createTrials(data) {
         response_ends_trial: false,
         set_background: cur_background,
         data:{
-          side1: data[i]['side1'],
-          left_video: data[i]['left_video'],
-          right_video: data[i]['right_video'],
-          target_side: data[i]['target_side'],
+          center_video: data[i]['center_video'],
           trial_type: data[i]['trial_type'],
           cur_side: data[i]['playing_side'],
           correct_response: data[i]['correct_response'],
@@ -195,7 +175,7 @@ function createTrials(data) {
           data.correct = data.button_pressed == data.correct_response;
         }
       }
-      timeline.push(plp_trials);
+      timeline.push(train_trials);
     }
 }
 
@@ -211,28 +191,14 @@ var imageExt = 'stimuli/images/'
 
 
 var images = [
-"apple01.jpg",
-"apple02.jpg",
-"apple03.jpg",
-"ball01.jpg",
-"ball02.jpg",
-"ball03.jpg",
-"balloons_left.jpg",
-"balloons_right.jpg",
-"beach_left.jpg",
-"beach_right.jpg",
-"black-background.jpg",
-"black.jpg",
-"crayon01.jpg",
-"crayon02.jpg",
-"crayon03.jpg",
-"fireworks_left.jpg",
-"fireworks_right.jpg",
-"ocean_left.jpg",
-"ocean_right.jpg",
-"toothbrush01.jpg",
-"toothbrush02.jpg",
-"toothbrush03.jpg"
+"apple.jpg",
+"ball.jpg",
+"book.jpg",
+"shoe.jpg",
+"colat.jpg",
+"manu.jpg",
+"tever.jpg",
+"wiso.jpg"
 ]
 
 var preload_images=[];
@@ -280,23 +246,22 @@ for (var l = 0; l < preload_audio.length; l++) {
 var videoExt = 'stimuli/videos/'
 
 var video = [
-  "apple_typical.mp4",
-  "apple_atypical.mp4",
-  "ball_typical.mp4",
-  "ball_atypical.mp4",
-  "ball_typical1.mp4",
-  "ball_atypical1.mp4",
-  "ball_typical2.mp4",
-  "ball_atypical2.mp4",
-  "crayon_typical.mp4",
-  "crayon_atypical.mp4",
-  "toothbrush_typical.mp4",
-  "toothbrush_atypical.mp4",
-  "Bubbles6.mp4",
-  "Clouds6.mp4",
-  "Drops6.mp4",
-  "Kaleidoscope6.mp4",
-  "Planets6.mp4"
+  "LT_C_colat.mp4",
+  "LT_C_manu.mp4",
+  "LT_C_tever.mp4",
+  "LT_C_wiso.mp4",
+  "LT_UC_colat.mp4",
+  "LT_UC_manu.mp4",
+  "LT_UC_tever.mp4",
+  "LT_UC_wiso.mp4",
+  "PE_C_colat.mp4",
+  "PE_C_manu.mp4",
+  "PE_C_tever.mp4",
+  "PE_C_wiso.mp4",
+  "PE_UC_colat.mp4",
+  "PE_UC_manu.mp4",
+  "PE_UC_tever.mp4",
+  "PE_UC_wiso.mp4"
 ];
 
 var preload_vids=[];
