@@ -56,6 +56,6 @@ block,trial_number,auditory_stimulus,left_image,right_image,target_label,center_
 5,55,AG_almost_done,,ocean-left,ocean-right,,,,,black-background,LWL
 5,56,see_tever,tever,manu,tever,,left,0,,black-background,LWL
 5,57,find_manu,tever,manu,manu,,right,1,,black-background,LWL
-5,58,wher_colat,wiso,colat,colat,,right,1,,black-background,LWL
+5,58,where_colat,wiso,colat,colat,,right,1,,black-background,LWL
 5,59,look_wiso,colat,wiso,wiso,,right,1,,black-background,LWL
 5,60,AG_great_job_done,,waterfall-left,waterfall-right,,,,,black-background,LWL
