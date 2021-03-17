@@ -32,9 +32,9 @@ block,trial_number,auditory_stimulus,left_image,right_image,target_label,center_
 4,31,PE_cool1,,,,PE_C_tever,center,,center,black-background,T
 4,32,PE_wow1,,,,PE_C_manu,center,,center,black-background,T
 4,33,LT_this_tever2,,,,LT_C_tever,center,,center,black-background,T
-4,34,LT_here_manu1,,,,LT_C_manu,center,,center,black-background,T
+4,34,LT_here_manu2,,,,LT_C_manu,center,,center,black-background,T
 4,35,LT_this_tever3,,,,LT_C_tever,center,,center,black-background,T
-4,36,LT_here_manu2,,,,LT_C_manu,center,,center,black-background,T
+4,36,LT_here_manu3,,,,LT_C_manu,center,,center,black-background,T
 5,37,AG_neat,,,,BouncyBalls,,,center,black-background,T
 5,38,where_ball,ball,apple,ball,,left,0,,black-background,LWL
 5,39,look_shoe,book,shoe,shoe,,right,1,,black-background,LWL
