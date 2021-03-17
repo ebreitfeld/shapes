@@ -115,6 +115,7 @@ function createTrials(data) {
     var cur_video_button_play = '<div><video id="center-video-play" width="800" autoplay></div>';
     var button_html = [cur_video_button_play];
     var selector_ids = ['center-video-play'];
+    var cur_choices = [cur_video];
 
     //define set up visual display
     var cur_background = data[i]['background'];
@@ -153,7 +154,7 @@ function createTrials(data) {
         type: 'audio-button-response-flexiblelocations',
 			  preload_video_button: true,
         stimulus: cur_stimulus,
-        choices: cur_video,
+        choices: cur_choices,
         button_html: button_html,
 			  selector_ids: selector_ids,
         trial_ends_after_audio: true,
