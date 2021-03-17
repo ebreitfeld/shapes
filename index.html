@@ -113,6 +113,9 @@ function createTrials(data) {
     //define html buttons
     //var cur_video_button = '<div><video id="center-video" width="400" ></div>';
     var cur_video_button_play = '<div><video id="center-video-play" width="400" autoplay></div>';
+    var button_html = [cur_video_button_play];
+    var selector_ids = ['center-video-play'];
+    var cur_choices = [cur_video];
 
     //define set up visual display
     var cur_background = data[i]['background'];
@@ -151,9 +154,9 @@ function createTrials(data) {
         type: 'audio-button-response-flexiblelocations',
 			  preload_video_button: true,
         stimulus: cur_stimulus,
-        choices: cur_video,
-        button_html: cur_video_button_play,
-			  //selector_ids: ['center-video-play'],
+        choices: cur_choices,
+        button_html: button_html,
+			  selector_ids: selector_ids,
         trial_ends_after_audio: true,
         //trial_duration: 4500-7500,
         margin_top: ['0px','0px'],
