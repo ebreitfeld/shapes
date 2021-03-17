@@ -111,7 +111,7 @@ function createTrials(data) {
     var cur_right_image = imageStart+data[i]['right_image']+imageStop;
 
     //define html buttons
-    var cur_video_button = '<div><video id="center-video" width="400" ></div>';
+    //var cur_video_button = '<div><video id="center-video" width="400" ></div>';
     var cur_video_button_play = '<div><video id="center-video-play" width="400" autoplay></div>';
 
     //define set up visual display
@@ -153,7 +153,7 @@ function createTrials(data) {
         stimulus: cur_stimulus,
         choices: cur_video,
         button_html: cur_video_button,
-			  selector_ids: ['center-video','center-video-play'],
+			  selector_ids: ['center-video-play'],
         trial_ends_after_audio: true,
         //trial_duration: 4500-7500,
         margin_top: ['0px','0px'],
