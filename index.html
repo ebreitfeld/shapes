@@ -62,7 +62,7 @@ Papa.parse(publicSpreadsheetUrl,{
 })
 
 
-document.body.style.backgroundColor = "black";
+document.body.style.backgroundColor = "gray";
 document.body.style.backgroundSize = "100%";
 document.body.style.backgroundPosition = "top";
 document.body.style.backgroundRepeat = "no-repeat";
@@ -106,7 +106,7 @@ function createTrials(data) {
     var cur_stimulus = audioExt+data[i]['auditory_stimulus']+".wav";
     var cur_images = [imageStart+data[i]['left_image']+imageStop, imageStart+data[i]['right_image']+imageStop];
     var cur_video = videoStart+data[i]['center_video']+videoStop;
-    cur_video = [cur_video];
+    var cur_video = [cur_video];
     var cur_left_image = imageStart+data[i]['left_image']+imageStop;
     var cur_right_image = imageStart+data[i]['right_image']+imageStop;
 
@@ -208,7 +208,8 @@ var images = [
 "ocean-left.jpg",
 "ocean-right.jpg",
 "waterfall-left.jpg",
-"waterfall-right.jpg"
+"waterfall-right.jpg",
+"gray-background.jpg"
 ]
 
 var preload_images=[];
