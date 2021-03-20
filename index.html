@@ -106,6 +106,7 @@ function createTrials(data) {
     var cur_stimulus = audioExt+data[i]['auditory_stimulus']+".wav";
     var cur_images = [imageStart+data[i]['left_image']+imageStop, imageStart+data[i]['right_image']+imageStop];
     var cur_video = videoStart+data[i]['center_video']+videoStop;
+    cur_video = [cur_video];
     var cur_left_image = imageStart+data[i]['left_image']+imageStop;
     var cur_right_image = imageStart+data[i]['right_image']+imageStop;
 
