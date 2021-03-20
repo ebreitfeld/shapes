@@ -8,7 +8,7 @@ block,trial_number,auditory_stimulus,left_image,right_image,target_label,center_
 1,7,LT_here_tever1,,,,LT_C_tever,,,center,gray-background,T
 1,8,LT_this_manu3,,,,LT_C_manu,,,center,gray-background,T
 1,9,LT_here_tever2,,,,LT_C_tever,,,center,gray-background,T
-2,10,AG_cool,,,,Balloons,,,center,gray-background,T
+2,10,AG_wow,,,,Balloons,,,center,gray-background,T
 2,11,PE_cool2,,,,PE_UC_wiso,,,center,gray-background,T
 2,12,PE_wow2,,,,PE_UC_colat,,,center,gray-background,T
 2,13,PE_check2,,,,PE_UC_wiso,,,center,gray-background,T
@@ -17,7 +17,7 @@ block,trial_number,auditory_stimulus,left_image,right_image,target_label,center_
 2,16,LT_here_colat1,,,,LT_UC_colat,,,center,gray-background,T
 2,17,LT_this_wiso2,,,,LT_UC_wiso,,,center,gray-background,T
 2,18,LT_here_colat3,,,,LT_UC_colat,,,center,gray-background,T
-3,19,AG_wow,,,,BouncyBalls,,,center,gray-background,T
+3,19,AG_cool,,,,BouncyBalls,,,center,gray-background,T
 3,20,PE_wow3,,,,PE_C_tever,,,center,gray-background,T
 3,21,PE_check3,,,,PE_C_manu,,,center,gray-background,T
 3,22,PE_look3,,,,PE_C_tever,,,center,gray-background,T
@@ -26,7 +26,7 @@ block,trial_number,auditory_stimulus,left_image,right_image,target_label,center_
 3,25,LT_here_manu2,,,,LT_C_manu,,,center,gray-background,T
 3,26,LT_this_tever3,,,,LT_C_tever,,,center,gray-background,T
 3,27,LT_here_manu3,,,,LT_C_manu,,,center,gray-background,T
-4,28,AG_how_fun,,,,Ballons,,,center,gray-background,T
+4,28,AG_how_fun,,,,Balloons,,,center,gray-background,T
 4,29,PE_check1,,,,PE_UC_colat,,,center,gray-background,T
 4,30,PE_look1,,,,PE_UC_wiso,,,center,gray-background,T
 4,31,PE_cool1,,,,PE_UC_colat,,,center,gray-background,T
